@@ -11,7 +11,7 @@ docker run -d --name redis-container -v /var/cec/redis.rdb:/data/dump.rdb redis:
 # C
 pip3 install -U Flask
 #cd /home/cecuser/Project/stage1/
-mkdir /home/cecuser/Project/stage1/flask_server
+mkdir -p /home/cecuser/Project/stage1/flask_server
 cd /home/cecuser/Project/stage1/flask_server
 
 cat > /home/cecuser/Project/stage1/flask_server/flask_server.py << ENDOFFILE
@@ -23,7 +23,7 @@ def hello_world():
     return 'Hello, World!'
 ENDOFFILE
 
-export FLASK_APP=flask_server.py
+export FLASK_APP='flask_server.py'
 export FLASK_DEBUG=1
 #python3.7 -c 'import flask; flask run'
 python3.7 -m  flask run
