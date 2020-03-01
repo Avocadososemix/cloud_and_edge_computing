@@ -9,6 +9,9 @@ docker container run --publish 8000:8080 --detach --name bb bulletinboard:1.0
 docker run -d --name redis-container -v /var/cec/redis.rdb:/data/dump.rdb redis:latest
 
 # C
+
+kill -9 `lsof -i:5000 -t` # kill extra copies of flask running
+
 pip3 install -U Flask
 #cd /home/cecuser/Project/stage1/
 mkdir -p /home/cecuser/Project/stage1/flask_server
