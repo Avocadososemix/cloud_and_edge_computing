@@ -24,4 +24,4 @@ ENDOFFILE
 
 export FLASK_APP=flask_server.py
 export FLASK_DEBUG=1
-python3.7 -m flask run &
+python3.7 -m import flask && flask run &
