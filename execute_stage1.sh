@@ -4,9 +4,11 @@ git clone https://github.com/dockersamples/node-bulletin-board
 cd /home/cecuser/Project/stage1/node-bulletin-board/bulletin-board-app
 docker image build -t bulletinboard:1.0 .
 docker container run --publish 8000:8080 --detach --name bb bulletinboard:1.0
+sudo docker start bb
 
 # B
-docker run -d --name redis-container -v /var/cec/redis.rdb:/data/dump.rdb redis:latest
+sudo docker run -d --name redis-container -v /var/cec/redis.rdb:/data/dump.rdb redis:latest
+sudo docker start redis-container
 
 # C
 
@@ -18,7 +20,18 @@ mkdir -p /home/cecuser/Project/stage1/flask_server
 cd /home/cecuser/Project/stage1/flask_server
 
 cat > /home/cecuser/Project/stage1/flask_server/flask_server.py << ENDOFFILE
+
+
+
+
+
+
 from flask import Flask
+import redis
+from config import redis_uri
+
+r = redis.Redis(url='127.0.0.1:6379')
+
 app = Flask(__name__)
 
 @app.route('/')
