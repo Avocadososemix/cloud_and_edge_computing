@@ -9,6 +9,7 @@ docker container run --publish 8000:8080 --detach --name bb bulletinboard:1.0
 docker run -d --name redis-container -v /var/cec/redis.rdb:/data/dump.rdb redis:latest
 
 # C
+pip3 install -U Flask
 #cd /home/cecuser/Project/stage1/
 mkdir /home/cecuser/Project/stage1/flask_server
 cd /home/cecuser/Project/stage1/flask_server
@@ -24,5 +25,5 @@ ENDOFFILE
 
 export FLASK_APP=flask_server.py
 export FLASK_DEBUG=1
-python3.7 -c 'import flask; flask run'
-python3.7 -m  flask run &
+#python3.7 -c 'import flask; flask run'
+python3.7 -m  flask run
